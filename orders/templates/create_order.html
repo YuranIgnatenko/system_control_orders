@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Создание заказа</title>
+</head>
+
+<body>
+
+	<style>
+		h1 {
+			font-size: 30px;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 300;
+			text-align: center;
+			margin-bottom: 15px;
+		}
+
+		table {
+			width: 100%;
+			height: 100%;
+			table-layout: fixed;
+		}
+
+		.tbl-header {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+
+		.tbl-content {
+			height: 95%;
+			overflow-x: auto;
+			margin-top: 0px;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+		}
+
+		th {
+			padding: 20px 15px;
+			font-weight: 500;
+			font-size: 15px;
+			color: #fff;
+			text-transform: uppercase;
+		}
+
+		td {
+			padding: 5px;
+			vertical-align: middle;
+			font-weight: 300;
+			font-size: 15px;
+			color: #ffffff;
+			border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+		}
+
+		body {
+			background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+			background: linear-gradient(to right, #25c481, #25b7c4);
+			font-family: 'Roboto', sans-serif;
+		}
+
+		section {
+			margin: 5px;
+		}
+
+
+		::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		}
+
+		::-webkit-scrollbar-thumb {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		}
+	</style>
+
+	<style>
+		.div-inline-block {
+			display: inline-block;
+		}
+	</style>
+
+	<script>
+		$(window).on("load resize ", function () {
+			var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+			$('.tbl-header').css({ 'padding-right': scrollWidth });
+		}).resize();
+	</script>
+
+	<h1>Создание заказа</h1>
+	<hr>
+
+
+
+	<style>
+		.panel-ctrl {
+			box-sizing: border-box;
+			padding: 5px;
+			width: 80%;
+			font-size: 20px;
+		}
+
+		.panel-center {
+			box-sizing: border-box;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			padding: 5px;
+			margin: 5px;
+		}
+
+		textarea {
+			font-family: Courier New, monospace;
+			font-size: 23px;
+			height: 300px;
+			width: 94%;
+			text-align: left;
+			padding: 40px;
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+
+		input {
+			font-family: Courier New, monospace;
+			font-size: 20px;
+			height: 10px;
+			width: 30%;
+			text-align: left;
+			padding: 20px;
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+
+		.text-order {
+			width: 95%;
+			padding: 1%;
+		}
+
+		button {
+			margin: 5px;
+		}
+
+		.button-new {
+			padding: 10px;
+			background-color: #26ff0043;
+		}
+	</style>
+	<center>
+		<form class="text-order" width="100%" action="/new_order/" method="post">
+			{% csrf_token %}
+			<textarea name="data_for_order" placeholder="'Grean Tea' 120.90"></textarea>
+			<br>
+			<input type="number" name="table_number_for_order" placeholder="Номер стола (1..20)">
+			<button class="button-new" type="submit">
+				<img src="https://img.icons8.com/?size=100&id=41684&format=png&color=000000" width="30" height="30"
+					title="СОХРАНИТЬ">
+			</button>
+		</form>
+
+		<div class="div-inline-block">
+			<form action="/view_orders/" method="post">
+				{% csrf_token %}
+				<button type="submit">
+					<img src="https://img.icons8.com/?size=100&id=praCGGDORz8J&format=png&color=000000" width="30"
+						height="30" title="К СПИСКУ ЗАКАЗОВ">
+				</button>
+			</form>
+		</div>
+	</center>
+
+	<hr>
+	<h1>Шаблон</h1>
+	<form class="text-order">
+		{% csrf_token %}
+		<textarea name="data_for_order" placeholder="'Grean Tea' 120.90">'Green Tea' 120.90
+'Black Tea' 130.20
+'Red Tea' 140.90
+'Milk Ulun Tea' 150.90
+'Bread' 10.90
+'Water' 5.90
+		</textarea>
+	</form>
+
+
+
+
+
+</body>
+
+</html>

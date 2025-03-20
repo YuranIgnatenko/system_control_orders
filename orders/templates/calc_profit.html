@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>РАСЧЕТ</title>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+
+<body>
+
+	<style>
+		canvas {
+			font-size: 30px;
+		}
+
+		h1 {
+			font-size: 30px;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 300;
+			text-align: center;
+			margin-bottom: 15px;
+		}
+
+		body {
+			background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+			background: linear-gradient(to right, #25c481, #25b7c4);
+			font-family: 'Roboto', sans-serif;
+		}
+
+		section {
+			margin: 5px;
+		}
+	</style>
+
+	<style>
+		.div-inline-block {
+			display: inline-block;
+		}
+	</style>
+
+
+	<center>
+		<h1>График расчета за смену по статусу</h1>
+		<div class="div-inline-block">
+			<canvas id="income" width="700px" height="500px"></canvas>
+		</div>
+		<hr>
+		<br>
+
+		<div class="div-inline-block">
+			<form action="/view_orders/" method="post">
+				{% csrf_token %}
+				<button type="submit">
+					<img src="https://img.icons8.com/?size=100&id=praCGGDORz8J&format=png&color=000000" width="30"
+						height="30" title="К СПИСКУ ЗАКАЗОВ">
+				</button>
+			</form>
+		</div>
+	</center>
+
+
+	<input type="text" id="value_summa" value="{{value_summa}}" hidden>
+	<input type="text" id="value_in_waiting" value="{{value_in_waiting}}" hidden>
+	<input type="text" id="value_payment_ok" value="{{value_payment_ok}}" hidden>
+	<input type="text" id="value_complete" value="{{value_complete}}" hidden>
+
+	<script>
+
+		var barData = {
+			labels: ["ВСЕГО", "В ОЖИДАНИИ", "ОПЛАЧЕНО", "ВЫПОЛНЕНО"],
+			datasets: [
+				{
+					fillColor: "#48A497",
+					strokeColor: "black",
+					data: [
+						document.getElementById('value_summa').value,
+						document.getElementById('value_in_waiting').value,
+						document.getElementById('value_payment_ok').value,
+						document.getElementById('value_complete').value],
+				},
+			]
+		}
+		var income = document.getElementById("income").getContext("2d");
+		new Chart(income).Bar(barData);
+	</script>
+</body>
+
+</html>
