@@ -54,8 +54,8 @@
 		}
 
 		body {
-			background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-			background: linear-gradient(to right, #25c481, #25b7c4);
+			background: -webkit-linear-gradient(left, #2e6f54, #116c75);
+			background: linear-gradient(to right, #2e6f54, #116c75);
 			font-family: 'Roboto', sans-serif;
 		}
 
@@ -92,9 +92,6 @@
 
 	<h1>Создание заказа</h1>
 	<hr>
-
-
-
 	<style>
 		.panel-ctrl {
 			box-sizing: border-box;
@@ -147,9 +144,9 @@
 	<center>
 		<form class="text-order" width="100%" action="/new_order/" method="post">
 			{% csrf_token %}
-			<textarea name="data_for_order" placeholder="'Grean Tea' 120.90"></textarea>
+			<textarea name="items" placeholder="'Grean Tea' 120.90"></textarea>
 			<br>
-			<input type="number" name="table_number_for_order" placeholder="Номер стола (1..20)">
+			<input type="number" name="table_number" placeholder="Номер стола (1..20)">
 			<button class="button-new" type="submit">
 				<img src="https://img.icons8.com/?size=100&id=41684&format=png&color=000000" width="30" height="30"
 					title="СОХРАНИТЬ">
@@ -179,11 +176,6 @@
 'Water' 5.90
 		</textarea>
 	</form>
-
-
-
-
-
 </body>
 
 </html>

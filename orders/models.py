@@ -51,10 +51,3 @@ def list_items_titles_to_str(list_items:list[Item]) -> str:
 	Green Tea, Black Tea
 	'''
 	return SYMBOL_JOIN_TITLES_ITEMS.join([item.title for item in list_items])
-
-
-
-def switch_status_order(id:int, status:str):
-	temp_order = Order.objects.get(id=id)
-	temp_order.status = status
-	temp_order.save()
