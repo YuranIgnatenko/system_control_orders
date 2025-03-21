@@ -1,18 +1,9 @@
 # System control orders
 
-> visit demo link
-
-` test`
-
 > view video demo
 
-www.www.com
+https://youtu.be/iUiB6RLdtHc
 
-> started
-
-```
-test
-```
 
 > demo screen
 
